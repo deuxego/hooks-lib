@@ -1,5 +1,20 @@
 ## `Hooks lib`
 
+### `useStore`
+
+```tsx
+  // was used Proxy for triggering re-render
+  const store = useStore({ count: 0 });
+
+  return (
+    <div>
+      <button onClick={() => (store.count += 1)}>+</button>
+      <span>{store.count}</span>
+      <button onClick={() => (store.count -= 1)}>-</button>
+    </div>
+  );
+```
+
 ### `useV`
 ```tsx
   const [count, inc, dec] = useV(0)(

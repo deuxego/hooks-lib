@@ -1,3 +1,4 @@
+import { useStore } from 'hooks/useStore';
 import { useV } from 'hooks/useV';
 
 const UseV = () => {
@@ -16,10 +17,25 @@ const UseV = () => {
   );
 };
 
+const UseStore = () => {
+    // useStore example
+  const store = useStore({ count: 0 });
+
+  return (
+    <div>
+      <button onClick={() => (store.count += 1)}>+</button>
+      <span>{store.count}</span>
+      <button onClick={() => (store.count -= 1)}>-</button>
+    </div>
+  );
+};
+
+
 const App = () => {
   return (
     <div>
       <UseV />
+      <UseStore />
     </div>
   );
 };
