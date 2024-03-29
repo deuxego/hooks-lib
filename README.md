@@ -11,6 +11,9 @@
       <button onClick={() => (store.count += 1)}>+</button>
       <span>{store.count}</span>
       <button onClick={() => (store.count -= 1)}>-</button>
+
+      {/* reset to default value */}
+      <button onClick={() => store.reset('count')}>reset</button>
     </div>
   );
 ```
