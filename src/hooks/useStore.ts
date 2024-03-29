@@ -1,16 +1,21 @@
 import { useState } from "react";
 
-export const useStore = <T,>(initialState: Record<string, T>) => {
+type StateType<T> = {
+  [K in keyof T]: T[K];
+};
+
+export const useStore = <T,>(initialState: StateType<T>) => {
   const [state, setState] = useState(initialState);
 
   const proxyState = new Proxy(state, {
     set(target, prop, newValue) {
-      target[prop as string] = newValue;
+      target[prop as keyof T] = newValue;
+      console.log(state)
       setState({...state, [prop as string]: newValue});
       return true;
     },
     get(target, prop) {
-      return target[prop as string];
+      return target[prop as keyof T];
     }
   });
 

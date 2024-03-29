@@ -10,15 +10,15 @@ const UseV = () => {
 
   return (
     <div>
-      <button onClick={inc}>+</button>
+      <button onClick={() => inc()}>+</button>
       <span>{count}</span>
-      <button onClick={dec}>-</button>
+      <button onClick={() => dec()}>-</button>
     </div>
   );
 };
 
 const UseStore = () => {
-    // useStore example
+  // useStore example
   const store = useStore({ count: 0 });
 
   return (
@@ -29,7 +29,6 @@ const UseStore = () => {
     </div>
   );
 };
-
 
 const App = () => {
   return (
